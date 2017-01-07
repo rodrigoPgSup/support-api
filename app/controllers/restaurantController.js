@@ -10,6 +10,16 @@ exports.findAll = function(req, res){
 
 }
 
+exports.find = function(req, res){
+	Order.find({
+		_id : req.param('id')
+	}, function(err, order){
+		if(err)
+			res.status(404).send("Nothing found here Muthufucka")
+		res.status(200).send(order)
+	})
+}
+
 exports.create = function(req, res){
 	Order.create({
 		amount: req.body.amount,
