@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
 var morgan = require('morgan')
 var app = express()
+var port = process.env.PORT || 8080;
 
 // var config = require('./config/config')
 
@@ -17,7 +18,7 @@ app.use(methodOverride())
 
 require('./app/routes')(app)
 
-app.listen(8080)
+app.listen(port)
 
 module.exports = app
 
